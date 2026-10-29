@@ -1,0 +1,667 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+
+@font-face {
+    font-family: 'UntitledSans-Light';
+    src: url("../fonts/untitled_sans_light-webfont.woff") format("woff"),
+         url("../fonts/untitled_sans_light-webfont.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'AshburyW01';
+    src: url('../fonts/ashburyw01-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/ashburyw01-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  
+  @font-face {
+    font-family: 'RF Dewi';
+    src: url('../fonts/rfdewi-light-webfont.woff2') format('woff2'),
+         url('../fonts/rfdewi-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+
+
+body {
+   margin: 0;
+   background-color: #fffdf4;
+   color: rgb(0, 0, 0)
+}
+
+h1,h2,h3,h4,h5,h6 {
+   margin: 0%;
+}
+p {
+   margin: 0,0,10px;
+}
+
+
+
+
+
+/* Container
+======================*/
+.container {
+   width: 100%;
+   margin: 0 auto;
+}
+
+/* Header
+======================*/
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+    padding: 0 1.2%;
+
+    box-sizing: border-box;
+    background: #fffdf4;
+    border-bottom: 1px solid transparent;
+
+    transition: border-color 0.3s ease;
+}
+
+/* Thin line after scrolling */
+
+.site-header.scrolled {
+    border-bottom-color: #bdbdbd;
+}
+
+/* Logo */
+
+.site-logo {
+    flex-shrink: 0;
+
+    color: #000;
+    text-decoration: none;
+
+    font-family: 'AshburyW01', serif;
+    font-size: 23px;
+    font-weight: 400;
+    word-spacing: 3px;
+}
+
+/* Desktop navigation */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.site-nav a {
+    position: relative;
+
+    color: #000;
+    text-decoration: none;
+
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+
+    transition: color 0.3s ease;
+}
+
+/* Underline animation */
+
+.site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 100%;
+    height: 1px;
+
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.site-nav a:hover {
+    color: #777;
+}
+
+.site-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hide mobile toggle on desktop */
+
+.menu-checkbox,
+.menu-button {
+    display: none;
+}
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 768px) {
+
+    .site-header {
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    .site-logo {
+        font-size: 21px;
+        position: relative;
+        z-index: 1002;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Checkbox stays accessible but invisible */
+
+    .menu-checkbox {
+        display: block;
+        position: fixed;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Hamburger button */
+
+    .menu-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+
+        position: relative;
+        z-index: 1002;
+    }
+
+    .menu-button span {
+        display: block;
+        width: 25px;
+        height: 1px;
+        background: #000;
+
+        transition: transform 0.3s ease;
+    }
+
+    /* Full-screen menu */
+
+    .site-nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        width: 100%;
+        height: calc(100dvh - 60px);
+        padding: 30px 20px;
+        box-sizing: border-box;
+
+        background: #fffdf4;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .site-nav a {
+        font-size: 30px;
+        line-height: 1.3;
+    }
+
+    /* Open menu */
+
+    .menu-checkbox:checked + .site-header .site-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    /* Turn hamburger into a cross */
+
+    .menu-checkbox:checked + .site-header .menu-button span:first-child {
+        transform: translateY(3.5px) rotate(45deg);
+    }
+
+    .menu-checkbox:checked + .site-header .menu-button span:last-child {
+        transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    /* Hide logo while menu is open */
+
+    .menu-checkbox:checked + .site-header .site-logo {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+
+
+
+.content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
+    gap: clamp(50px, 9vw, 140px);
+    align-items: start;
+
+    padding: 125px 8% 0;
+    box-sizing: border-box;
+    color: #000;
+}
+
+/* Text column */
+
+.text {
+    width: 100%;
+    max-width: 440px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.1px;
+    word-spacing: normal;
+}
+
+/* Small header */
+
+.artwork-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-bottom: 15px;
+    border-bottom: 1px solid #bdbdbd;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Artwork title */
+
+.artwork-title {
+    margin: 35px 0 20px;
+    font-family: 'AshburyW01', serif;
+    font-size: clamp(36px, 3.5vw, 54px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
+}
+
+/* Artwork information */
+
+.artwork-meta {
+    margin: 0 0 55px;
+    font-size: 12px;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+    color: #555;
+}
+
+/* Description */
+
+.artwork-description {
+    padding-top: 20px;
+    border-top: 1px solid #bdbdbd;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 22px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+}
+
+.artwork-description p {
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Artwork image */
+
+.photos-content {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.photos-content img,
+.photos-content video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+}
+
+/* Navigation */
+
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0 8%;
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+
+.nav-arrow img {
+    display: block;
+    width: 30px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.nav-arrow:hover img {
+    opacity: 0.45;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 90px 20px 0;
+    }
+
+    .text {
+        max-width: 600px;
+    }
+
+    .artwork-title {
+        margin-top: 28px;
+        font-size: 42px;
+    }
+
+    .artwork-meta {
+        margin-bottom: 35px;
+    }
+
+    .artwork-description p {
+        font-size: 14px;
+    }
+
+    .photos-content {
+        width: 100%;
+    }
+
+    .page-navigation {
+        padding: 0 20px;
+        margin-top: 45px;
+        margin-bottom: 35px;
+    }
+}
+
+
+
+
+
+
+
+  
+
+   /* Animations
+ ======================*/
+
+ /* Скрыть блоки до начала анимации */
+.header_inner,
+.text,
+.photos-content,
+.footer {
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+/* Анимация для появления блоков */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Применение анимации с задержкой для каждого блока */
+.header_inner {
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.text {
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.photos-content {
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.footer {
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.8s;
+}
+
+
+/* Стилизация линии между фотографиями */
+.photo-divider {
+    width: 100%; /* Линия на всю ширину */
+    height: 1px; /* Толщина линии */
+    background-color: #000000; /* Цвет линии */
+    margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+
+
+
+ /* Footer
+======================*/
+
+.site-footer {
+    width: 100%;
+    padding: 80px 2% 30px;
+    box-sizing: border-box;
+    color: #000;
+    background: transparent;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Top line */
+
+.footer-top,
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1.2px;
+}
+
+.footer-top {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+/* Main layout */
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 0.6fr 0.6fr;
+    gap: 60px;
+    padding: 55px 0 65px;
+    align-items: start;
+}
+
+/* Contact */
+
+.footer-label {
+    display: block;
+    margin-bottom: 24px;
+
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1.2px;
+}
+
+.footer-contact h2 {
+    margin: 0 0 30px;
+
+    font-family: 'AshburyW01', serif;
+    font-size: clamp(38px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+}
+
+.footer-contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+/* Links */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-column > a,
+.footer-contact-links a {
+    color: #000;
+    text-decoration: none;
+
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+
+    transition: color 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.footer-column > a:hover,
+.footer-contact-links a:hover {
+    color: #777;
+}
+
+/* Bottom line */
+
+.footer-bottom {
+    padding-top: 18px;
+    border-top: 1px solid #bdbdbd;
+    color: #555;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 60px 20px 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 25px;
+        padding: 40px 0 45px;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+
+    .footer-contact h2 {
+        font-size: 46px;
+    }
+}
+
+/* Small mobile */
+
+@media (max-width: 420px) {
+    .footer-top,
+    .footer-bottom {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+        gap: 12px;
+    }
+
+    .footer-main {
+        gap: 35px 15px;
+    }
+
+    .footer-contact h2 {
+        font-size: 40px;
+    }
+
+    .footer-column > a,
+    .footer-contact-links a {
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+}
+
+ 
+ 
