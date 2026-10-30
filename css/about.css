@@ -606,6 +606,13 @@ p {
     color: #777;
 }
 
+.arrow {
+    font-variant-emoji: text;
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
 /* Bottom line */
 
 .footer-bottom {
