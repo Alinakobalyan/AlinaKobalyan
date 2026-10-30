@@ -430,7 +430,7 @@ p {
 @media (max-width: 800px) {
     .about-page {
         width: 92%;
-        padding-top: 0px;
+        padding-top: 15px;
     }
 
     .about-content {
