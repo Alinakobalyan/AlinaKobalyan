@@ -110,6 +110,21 @@ p {
     word-spacing: 3px;
 }
 
+/* Arrow */
+
+.footer-arrow {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.footer-column a:hover .footer-arrow {
+    transform: translate(2px, -2px);
+}
+
 /* Desktop navigation */
 
 .site-nav {
