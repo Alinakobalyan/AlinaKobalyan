@@ -466,7 +466,7 @@ p {
     .about-content {
         grid-template-columns: 1fr;
         gap: 35px;
-        padding-top: 35px;
+        padding-top: 50px;
     }
 
     .about-copy {
