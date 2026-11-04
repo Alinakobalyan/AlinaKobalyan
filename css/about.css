@@ -299,123 +299,121 @@ p {
     width: 90%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 80px 0 35px;
+    padding: 100px 0 70px;
 
     box-sizing: border-box;
-    color: #000;;
+    color: #000;
 }
 
-/* Top and bottom labels */
-
-.about-top,
-.about-bottom {
+.about-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
 
+    padding-bottom: 18px;
+    border-bottom: 1px solid #bdbdbd;
+
     font-family: 'UntitledSans-Light', sans-serif;
     font-size: 10px;
     font-weight: 300;
     letter-spacing: 1.2px;
 }
 
-.about-top {
-    padding-bottom: 18px;
-    border-bottom: 1px solid #bdbdbd;
-}
+.about-top a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 
-.about-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0 0;
-  margin-top: 45px;
-  border-top: none;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.about-bottom a {
     color: #000;
     text-decoration: none;
+
     transition: opacity 0.3s ease;
 }
 
-.about-bottom a:hover {
+.about-top a:hover {
     opacity: 0.45;
 }
 
-/* Main layout */
-
 .about-content {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.75fr);
-    gap: clamp(45px, 8vw, 110px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    column-gap: clamp(60px, 9vw, 145px);
+
     align-items: start;
 
-    padding-top: 55px;
+    padding-top: 75px;
 }
 
-/* Text column */
-
 .about-copy {
-    padding-top: 35px;
     min-width: 0;
+    padding-top: 25px;
 }
 
 .about-eyebrow {
     display: block;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 
     font-family: 'UntitledSans-Light', sans-serif;
     font-size: 10px;
     font-weight: 300;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
 }
 
+
+/* Main title */
+
 .about-title {
-    margin: 0 0 35px;
-    padding-left: 0;
+    margin: 0 0 38px;
+    padding: 0;
 
     font-family: 'AshburyW01', serif;
-    font-size: clamp(52px, 6vw, 88px);
+    font-size: clamp(58px, 6vw, 90px);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 0.95;
     letter-spacing: -1.5px;
 }
 
+
+/* Description */
+
 .about-description {
+    max-width: 560px;
 
     font-family: 'UntitledSans-Light', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 1.9;
+    line-height: 1.85;
     letter-spacing: 0.1px;
 }
 
 .about-description p {
-    margin: 0 0 22px;
+    margin: 0 0 20px;
 }
 
-/* Signature */
+.about-description p:last-child {
+    margin-bottom: 0;
+}
 
 .about-signature {
+    max-width: 560px;
     margin-top: 45px;
-    padding-top: 16px;
+    padding-top: 17px;
+
     border-top: 1px solid #bdbdbd;
 
     font-family: 'UntitledSans-Light', sans-serif;
     font-size: 10px;
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 1.3px;
 }
 
-/* Portrait */
+/* Photo */
 
 .about-photo {
     width: 100%;
-    max-width: 440px;
+    max-width: 520px;
+    aspect-ratio: 1 / 1;
     justify-self: end;
     min-width: 0;
 }
@@ -423,97 +421,131 @@ p {
 .about-photo img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
-.photo-caption {
-    display: block;
-    margin-top: 12px;
-
-    font-family: 'UntitledSans-Light', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.3px;
-    color: #666;
-}
 
 /* =========================
    TABLET
 ========================= */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+
     .about-page {
         width: 92%;
-        padding-top: 15px;
+        padding-top: 90px;
     }
 
     .about-content {
-        gap: 35px;
-        padding-top: 40px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+        column-gap: 45px;
+        padding-top: 55px;
     }
 
-    .about-photo {
-        max-width: 100%;
+    .about-copy {
+        padding-top: 10px;
+    }
+
+    .about-title {
+        font-size: clamp(55px, 7vw, 72px);
+    }
+
+    .about-description {
+        font-size: 13px;
+        line-height: 1.8;
     }
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+
+    .about-page {
+        width: 92%;
+        padding-top: 85px;
+        padding-bottom: 45px;
+    }
+
+    .about-top {
+        padding-bottom: 15px;
+        font-size: 9px;
+        letter-spacing: 0.8px;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
-        gap: 35px;
-        padding-top: 50px;
+        gap: 40px;
+        padding-top: 45px;
     }
 
     .about-copy {
         padding-top: 0;
     }
 
+    .about-eyebrow {
+        margin-bottom: 20px;
+    }
+
     .about-title {
-        font-size: 58px;
-        margin-bottom: 25px;
+        font-size: 62px;
+        margin-bottom: 30px;
     }
 
     .about-description {
         max-width: 100%;
         font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .about-description p {
+        margin-bottom: 18px;
     }
 
     .about-signature {
-        margin-top: 30px;
+        margin-top: 35px;
+        padding-top: 15px;
     }
 
     .about-photo {
         max-width: 100%;
-    }
-
-    .about-bottom {
-        margin-top: 40px;
+        justify-self: start;
     }
 }
 
-/* Small mobile */
+
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 420px) {
-    .about-top,
-    .about-bottom {
-        gap: 12px;
+
+    .about-top {
         font-size: 8px;
         letter-spacing: 0.5px;
+        gap: 10px;
     }
 
     .about-title {
-        font-size: 50px;
+        font-size: 54px;
     }
 
-    .about-eyebrow {
-        margin-bottom: 18px;
+    .about-description {
+        font-size: 13px;
     }
 }
 
+@media (max-width: 650px) {
+    .about-photo {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+}
 
 
 
