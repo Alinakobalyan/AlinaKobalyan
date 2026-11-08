@@ -293,13 +293,20 @@ p {
 }
 
 
-
+/* Artwork layout — Desktop */
 
 .content {
     width: 100%;
     display: grid;
+
     grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
-    gap: clamp(50px, 9vw, 140px);
+    grid-template-areas:
+        "intro image"
+        "purchase image"
+        "description image";
+
+    column-gap: clamp(50px, 9vw, 140px);
+    row-gap: 0;
     align-items: start;
 
     padding: 125px 8% 0;
@@ -307,21 +314,34 @@ p {
     color: #000;
 }
 
-/* Text column */
+.artwork-intro {
+    grid-area: intro;
+}
 
-.text {
+.photos-content {
+    grid-area: image;
+}
+
+.artwork-purchase {
+    grid-area: purchase;
+}
+
+.artwork-description {
+    grid-area: description;
+}
+
+.artwork-intro,
+.artwork-purchase,
+.artwork-description {
     width: 100%;
     max-width: 440px;
     min-width: 0;
-    margin: 0;
-    padding: 0;
 
     font-family: 'UntitledSans-Light', sans-serif;
     font-size: 15px;
     font-weight: 300;
     line-height: 1.8;
     letter-spacing: 0.1px;
-    word-spacing: normal;
 }
 
 /* Small header */
@@ -421,43 +441,6 @@ p {
 
 .nav-arrow:hover img {
     opacity: 0.45;
-}
-
-/* Tablet and mobile */
-
-@media (max-width: 768px) {
-    .content {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding: 90px 20px 0;
-    }
-
-    .text {
-        max-width: 600px;
-    }
-
-    .artwork-title {
-        margin-top: 28px;
-        font-size: 42px;
-    }
-
-    .artwork-meta {
-        margin-bottom: 35px;
-    }
-
-    .artwork-description p {
-        font-size: 14px;
-    }
-
-    .photos-content {
-        width: 100%;
-    }
-
-    .page-navigation {
-        padding: 0 20px;
-        margin-top: 45px;
-        margin-bottom: 35px;
-    }
 }
 
 /* Artwork price */
@@ -561,6 +544,101 @@ p {
     color: #fff;
 }
 
+
+/* Tablet and mobile */
+
+@media (max-width: 768px) {
+
+    .content {
+        grid-template-columns: minmax(0, 1fr);
+
+        grid-template-areas:
+            "intro"
+            "image"
+            "purchase"
+            "description";
+
+        row-gap: 0;
+        padding: 90px 20px 0;
+    }
+
+    .artwork-intro,
+    .artwork-purchase,
+    .artwork-description {
+        max-width: 100%;
+    }
+
+    .artwork-title {
+        margin-top: 28px;
+        font-size: 42px;
+    }
+
+    .artwork-meta {
+        margin-bottom: 30px;
+    }
+
+    .photos-content {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    .photos-content img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .artwork-intro {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #bdbdbd;
+    }
+
+    .artwork-meta {
+        margin-bottom: 0;
+    }
+
+    .artwork-price {
+        max-width: 100%;
+        margin-top: 0;
+        padding-top: 20px;
+    }
+
+    .price-original {
+        padding-bottom: 12px;
+    }
+
+    .price-main {
+        font-size: 24px;
+    }
+
+    .price-print {
+        padding-bottom: 0;
+    }
+
+    .price-secondary {
+        font-size: 13px;
+    }
+
+    .artwork-buy-button {
+        margin-top: 25px;
+        margin-bottom: 45px;
+    }
+
+    .artwork-description {
+        padding-top: 20px;
+    }
+
+    .artwork-description p {
+        font-size: 14px;
+    }
+
+    .page-navigation {
+        padding: 0 20px;
+        margin-top: 45px;
+        margin-bottom: 35px;
+    }
+}
 
    /* Animations
  ======================*/
