@@ -851,5 +851,86 @@ p {
     }
 }
 
+/* Text reveal */
+
+@keyframes artworkFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+
+.artwork-header {
+    animation: artworkFadeUp 0.8s ease-out 0.1s both;
+}
+
+/* Title */
+
+.artwork-title {
+    animation: artworkFadeUp 1.1s
+        cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+/* Artwork details */
+
+.artwork-meta {
+    animation: artworkFadeUp 0.9s ease-out 0.45s both;
+}
+
+/* Prices */
+
+.artwork-purchase {
+    animation: artworkFadeUp 0.9s
+        cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+}
+
+/* Description */
+
+.artwork-description .section-label {
+    animation: artworkFadeUp 0.9s ease-out 0.8s both;
+}
+
+.artwork-description p {
+    animation: artworkFadeUp 1s
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.artwork-description p:nth-of-type(1) {
+    animation-delay: 0.95s;
+}
+
+.artwork-description p:nth-of-type(2) {
+    animation-delay: 1.1s;
+}
+
+.artwork-description p:nth-of-type(3) {
+    animation-delay: 1.25s;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .artwork-header,
+    .artwork-title,
+    .artwork-meta,
+    .photos-content,
+    .photos-content img,
+    .artwork-purchase,
+    .artwork-description .section-label,
+    .artwork-description p {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        clip-path: none;
+    }
+}
  
  
