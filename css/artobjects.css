@@ -709,7 +709,8 @@ html {
 }
 
  
- /* =========================
+
+/* =========================
    COMING SOON
 ========================= */
 
@@ -718,7 +719,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px 80px;
+    padding: 120px 20px 80px;
     box-sizing: border-box;
     background: #fffdf4;
 }
@@ -741,7 +742,7 @@ html {
 
 .coming-soon-title {
     font-family: 'AshburyW01', serif;
-    font-size: clamp(45px, 8vw, 150px);
+    font-size: clamp(65px, 10vw, 150px);
     font-weight: 400;
     line-height: 1;
     letter-spacing: -3px;
@@ -775,6 +776,41 @@ html {
     font-family: 'AshburyW01', serif;
     font-size: 28px;
     font-weight: 400;
+}
+
+/* Animation */
+
+@keyframes comingSoonFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .coming-soon {
+        min-height: 100svh;
+        padding: 100px 20px 60px;
+    }
+
+    .coming-soon-title {
+        font-size: clamp(58px, 13vw, 90px);
+        letter-spacing: -1.5px;
+    }
+
+    .coming-soon-description {
+        font-size: 13px;
+    }
+
+    .coming-soon-release {
+        margin-top: 50px;
+    }
 }
 
 
