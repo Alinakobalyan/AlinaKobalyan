@@ -1060,3 +1060,8 @@ html {
     }
 }
 
+@media (max-width: 768px) {
+    .intro_title > span {
+        padding-left: 8px;
+    }
+}
