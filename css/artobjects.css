@@ -709,9 +709,73 @@ html {
 }
 
  
- 
+ /* =========================
+   COMING SOON
+========================= */
 
+.coming-soon {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 80px;
+    box-sizing: border-box;
+    background: #fffdf4;
+}
 
+.coming-soon-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: comingSoonFade 1s ease both;
+}
+
+.coming-soon-label {
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.coming-soon-title {
+    font-family: 'AshburyW01', serif;
+    font-size: clamp(45px, 8vw, 150px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.coming-soon-description {
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 28px;
+    color: #777;
+}
+
+.coming-soon-release {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 65px;
+}
+
+.coming-soon-release span {
+    font-family: 'UntitledSans-Light', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #777;
+}
+
+.coming-soon-release time {
+    font-family: 'AshburyW01', serif;
+    font-size: 28px;
+    font-weight: 400;
+}
 
 
   /* Footer
