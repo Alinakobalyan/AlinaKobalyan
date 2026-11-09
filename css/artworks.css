@@ -1060,4 +1060,21 @@ html {
     }
 }
 
+@media (max-width: 768px) {
+    .intro-heading {
+        overflow: visible;
+        min-width: 0;
+    }
 
+    .intro_title {
+        overflow: visible;
+        clip-path: none;
+        padding: 12px 8px 12px 4px;
+        margin: -12px -8px -12px -4px;
+    }
+
+    .intro_title span {
+        overflow: visible;
+        clip-path: none;
+    }
+}
