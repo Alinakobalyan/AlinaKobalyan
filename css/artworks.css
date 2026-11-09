@@ -930,3 +930,68 @@ html {
 .intro-description {
     animation: slideFromRight 1.1s 0.25s ease both;
 }
+
+
+
+
+/* Line */
+
+@keyframes lineFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineFadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-top,
+.intro-bottom {
+    position: relative;
+    border: none;
+}
+
+.intro-top::after,
+.intro-bottom::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #bdbdbd;
+}
+
+.intro-top::after {
+    bottom: 0;
+    animation: lineFadeUp 1s ease 0.1s both;
+}
+
+
+.intro-bottom::before {
+    top: 0;
+    animation: lineFadeDown 1s ease 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-top::after,
+    .intro-bottom::before {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
