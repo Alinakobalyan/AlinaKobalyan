@@ -1061,24 +1061,3 @@ html {
 }
 
 
-/* Fix cropped letters on mobile */
-
-@media (max-width: 768px) {
-    .intro_title {
-        line-height: 1.25;
-        overflow: visible;
-        clip-path: none;
-    }
-
-    .intro_title span {
-        overflow: visible;
-        clip-path: none;
-    }
-
-    .intro-heading {
-        overflow: visible;
-    }
-}
-
-
-
