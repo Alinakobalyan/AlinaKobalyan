@@ -761,3 +761,125 @@ p {
   animation-delay: 0.2s;
 }
 
+
+/* =========================
+   ABOUT — EDITORIAL REVEAL
+========================= */
+
+@keyframes aboutFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aboutPhotoReveal {
+    from {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes aboutPhotoZoom {
+    from {
+        transform: scale(1.12);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Top navigation */
+
+.about-top {
+    animation: aboutFadeUp 0.9s ease-out 0.1s both;
+}
+
+/* Title */
+
+.about-eyebrow {
+    animation: aboutFadeUp 0.9s ease-out 0.25s both;
+}
+
+.about-title {
+    animation: aboutFadeUp 1.2s
+        cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* Description */
+
+.about-description p {
+    animation: aboutFadeUp 1s
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-description p:nth-child(1) {
+    animation-delay: 0.55s;
+}
+
+.about-description p:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.about-description p:nth-child(3) {
+    animation-delay: 0.85s;
+}
+
+.about-description p:nth-child(4) {
+    animation-delay: 1s;
+}
+
+.about-description p:nth-child(5) {
+    animation-delay: 1.15s;
+}
+
+/* Signature */
+
+.about-signature {
+    animation: aboutFadeUp 1s ease-out 1.3s both;
+}
+
+/* Portrait */
+
+.about-photo {
+    overflow: hidden;
+
+    animation: aboutPhotoReveal 1.6s
+        cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.about-photo img {
+    animation: aboutPhotoZoom 2s
+        cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-top,
+    .about-eyebrow,
+    .about-title,
+    .about-description p,
+    .about-signature,
+    .about-photo,
+    .about-photo img {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        clip-path: none;
+    }
+}
+
+
