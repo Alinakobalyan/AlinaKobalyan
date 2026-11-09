@@ -1060,8 +1060,3 @@ html {
     }
 }
 
-@media (max-width: 768px) {
-    .intro_title span {
-        margin-top: 5px;
-    }
-}
