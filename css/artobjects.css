@@ -749,14 +749,6 @@ html {
     margin: 0;
 }
 
-.coming-soon-description {
-    font-family: 'UntitledSans-Light', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    margin-top: 28px;
-    color: #777;
-}
-
 .coming-soon-release {
     display: flex;
     flex-direction: column;
