@@ -467,12 +467,13 @@ p {
 
     .about-page {
         width: 92%;
-        padding-top: 85px;
+        padding-top: 90px;
         padding-bottom: 45px;
     }
 
     .about-top {
         padding-bottom: 15px;
+        padding-top: 0px;
         font-size: 9px;
         letter-spacing: 0.8px;
     }
