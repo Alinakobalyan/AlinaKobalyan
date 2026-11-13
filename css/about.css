@@ -291,6 +291,37 @@ p {
 }
 
 
+/* MOBILE — MENU */
+
+#header {
+    transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+} 
+
+@media (max-width: 768px) {
+
+    /* Disable page scrolling when menu is open */
+    body:has(#menu:checked) {
+        overflow: hidden;
+    }
+
+    /* Keep header visible */
+    #menu:checked ~ .site-header {
+        top: 0 !important;
+    }
+
+    /* Allow scrolling inside the menu */
+    #menu:checked ~ .site-header .site-nav {
+        max-height: 100dvh;
+        overflow-y: auto;
+    }
+
+    /* Hide header border when menu is open */
+    #menu:checked ~ .site-header.scrolled {
+        border-bottom-color: transparent;
+    }
+
+}
+
 /* Intro
 ======================*/
 
