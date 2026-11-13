@@ -292,8 +292,12 @@ p {
     }
 }
 
+#header {
+    transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-/* Artwork layout — Desktop */
+
+/* Artworks */
 
 .content {
     width: 100%;
